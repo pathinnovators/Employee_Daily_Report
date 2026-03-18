@@ -81,7 +81,7 @@ button:hover{
 <body>
 
 <div class="header">
-    <img src="https://via.placeholder.com/60" alt="Logo">
+    <img src="logo.png" alt="Logo">
     <h2>Bright Path Innovators Pvt Ltd</h2>
 </div>
 
