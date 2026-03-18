@@ -1,0 +1,190 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Employee Report</title>
+
+<style>
+*{ box-sizing:border-box; }
+
+body{
+    font-family:Poppins, sans-serif;
+    background:#f4f6f9;
+    margin:0;
+}
+
+/* HEADER */
+.header{
+    background:#0047AB;
+    color:white;
+    text-align:center;
+    padding:25px 15px;
+}
+
+.header img{
+    width:60px;
+    margin-bottom:10px;
+}
+
+.container{
+    max-width:500px;
+    margin:20px auto;
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.container h2{
+    text-align:center;
+    margin-bottom:10px;
+    color:#0047AB;
+}
+
+h3{
+    margin-top:20px;
+}
+
+input, textarea, select{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#0047AB;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#003080;
+}
+
+.footer{
+    text-align:center;
+    padding:15px;
+    font-size:14px;
+    color:#555;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <img src="https://via.placeholder.com/60" alt="Logo">
+    <h2>Bright Path Innovators Pvt Ltd</h2>
+</div>
+
+<div class="container">
+
+<h2>Employee Daily Report</h2>
+
+<form id="reportForm">
+
+<h3>Employee Details</h3>
+<input type="text" id="name" placeholder="Employee Name" required>
+<input type="text" id="empId" placeholder="Employee ID" required>
+<input type="date" id="date" required>
+
+<h3>Work Timing</h3>
+<label>Entry Time</label>
+<input type="time" id="entry" required>
+
+<label>Exit Time</label>
+<input type="time" id="exit" required>
+
+<h3>Work Details</h3>
+<textarea id="completed" placeholder="Tasks Completed Today" required></textarea>
+<textarea id="pendingToday" placeholder="Tasks Pending Today"></textarea>
+<textarea id="pendingTomorrow" placeholder="Tasks Planned for Tomorrow"></textarea>
+
+<h3>Issues</h3>
+<textarea id="issues" placeholder="Any Issues Faced?"></textarea>
+
+<select id="resolved">
+    <option value="">Issue Resolved?</option>
+    <option>Yes</option>
+    <option>No</option>
+    <option>In Progress</option>
+</select>
+
+<h3>Feedback</h3>
+<textarea id="experience" placeholder="How was your day?"></textarea>
+<textarea id="comments" placeholder="Comments"></textarea>
+<textarea id="suggestions" placeholder="Suggestions"></textarea>
+
+<button type="submit">Submit Report</button>
+
+</form>
+
+</div>
+
+<div class="footer">
+© 2026 Bright Path Innovators Pvt Ltd
+</div>
+
+<script>
+document.getElementById("reportForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const data = {
+        name: document.getElementById("name").value,
+        empId: document.getElementById("empId").value,
+        date: document.getElementById("date").value,
+        entry: document.getElementById("entry").value,
+        exit: document.getElementById("exit").value,
+        completed: document.getElementById("completed").value,
+        pendingToday: document.getElementById("pendingToday").value,
+        pendingTomorrow: document.getElementById("pendingTomorrow").value,
+        issues: document.getElementById("issues").value,
+        resolved: document.getElementById("resolved").value,
+        experience: document.getElementById("experience").value,
+        comments: document.getElementById("comments").value,
+        suggestions: document.getElementById("suggestions").value
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbyyGXPAmVhWOsk4jt4Uz-uEEnva3UdatwN7t1k9PTZshAcVHJ4WrJgcn1AByaubXePA/exec", {
+        method: "POST",
+        body: JSON.stringify(data)
+    });
+
+    const message = `📊 Daily Report
+Name: ${data.name}
+ID: ${data.empId}
+Date: ${data.date}
+
+Entry: ${data.entry}
+Exit: ${data.exit}
+
+Completed: ${data.completed}
+
+Pending Today: ${data.pendingToday}
+
+Tomorrow Plan: ${data.pendingTomorrow}
+
+Issues: ${data.issues}
+Resolved: ${data.resolved}
+
+Experience: ${data.experience}
+
+Comments: ${data.comments}
+Suggestions: ${data.suggestions}`;
+
+    const phone = "917794947709";
+
+    window.location.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+});
+</script>
+
+</body>
+</html>
