@@ -478,7 +478,7 @@
                 <label><i class="fas fa-user-circle"></i> Employee name <span class="required-star">*</span></label>
                 <select id="name" required>
                     <option value="">— select —</option>
-                    <option value="MUNESULA VEERESH">MUNESULA VEERESH</option>
+                    <option value="MSM V'RESH">MSM V'RESH</option>
                     <option value="HARIKRISHNA GANJI">HARIKRISHNA GANJI</option>
                     <option value="ESHWARAMMA GANJI">ESHWARAMMA GANJI</option>
                     <option value="RAMA CHANDAK">RAMA CHANDAK</option>
